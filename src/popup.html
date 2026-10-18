@@ -3,48 +3,78 @@
   <head>
     <meta charset="utf-8" />
     <style>
+      * { box-sizing: border-box; }
+      html, body { width: 200px; height: 200px; margin: 0; }
       body {
-        font: 13px/1.4 -apple-system, "Segoe UI", Roboto, sans-serif;
-        margin: 0;
-        width: 260px;
-        padding: 14px;
-        color: #1a1a1a;
+        position: relative;
+        overflow: hidden;
+        background: #0b0c14;
+        color: #f7f8fb;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      }
+      .logo {
+        position: absolute;
+        left: 14px;
+        top: 13px;
+        width: 74px;
+        height: 22px;
+        background: url("popup-reference.png") -14px -13px no-repeat;
       }
       h1 {
-        font-size: 14px;
-        margin: 0 0 4px;
-      }
-      p {
-        margin: 0 0 12px;
-        color: #666;
-      }
-      button {
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
+        position: absolute;
+        top: 47px;
+        left: 14px;
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
         font-weight: 600;
-        color: #fff;
-        background: #0b57d0;
-        border: 0;
-        border-radius: 8px;
-        cursor: pointer;
       }
-      button:disabled {
-        background: #9bb8e8;
-        cursor: default;
+      .description, #status {
+        position: absolute;
+        top: 77px;
+        left: 14px;
+        width: 172px;
+        margin: 0;
+        color: #a1a6b3;
+        font-size: 12px;
+        line-height: 18px;
       }
       #status {
-        margin-top: 10px;
-        color: #333;
+        display: none;
+        width: 172px;
+        max-height: 63px;
+        overflow-y: auto;
+        font-size: 11px;
+        line-height: 15px;
+        overflow-wrap: anywhere;
         white-space: pre-wrap;
       }
+      body.has-status .description { display: none; }
+      body.has-status #status { display: block; }
+      button {
+        position: absolute;
+        top: 148px;
+        left: 14px;
+        width: 172px;
+        height: 38px;
+        padding: 0;
+        border: 0;
+        border-radius: 6px;
+        background: #2b579a;
+        color: #fff;
+        font: 600 11.5px/38px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        cursor: pointer;
+      }
+      button:hover { background: #3567b1; }
+      button:disabled { opacity: .65; cursor: default; }
     </style>
   </head>
   <body>
+    <div class="logo" role="img" aria-label="Dion"></div>
     <h1>Dion Chat → DOCX</h1>
-    <p>Экспорт открытого диалога: автор, время, текст, ответы и картинки.</p>
-    <button id="go">Скачать диалог в DOCX</button>
-    <div id="status"></div>
+    <p class="description">Экспорт открытого<br />диалога: автор, время,<br />текст, ответы и картинки.</p>
+    <div id="status" role="status" aria-live="polite"></div>
+    <button id="go" type="button">Скачать диалог в DOCX</button>
     <script src="popup.js"></script>
   </body>
 </html>

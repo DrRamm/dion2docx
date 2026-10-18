@@ -11,6 +11,8 @@ await mkdir(outdir, { recursive: true });
 await cp("src/manifest.json", `${outdir}/manifest.json`);
 await cp("src/popup.html", `${outdir}/popup.html`);
 await cp("src/offscreen.html", `${outdir}/offscreen.html`);
+await cp("src/icons", `${outdir}/icons`, { recursive: true });
+await cp("src/popup-reference.png", `${outdir}/popup-reference.png`);
 
 const options = {
   entryPoints: {
