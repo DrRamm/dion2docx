@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font: 13px/1.4 -apple-system, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        width: 260px;
+        padding: 14px;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 4px;
+      }
+      p {
+        margin: 0 0 12px;
+        color: #666;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        background: #0b57d0;
+        border: 0;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      button:disabled {
+        background: #9bb8e8;
+        cursor: default;
+      }
+      #status {
+        margin-top: 10px;
+        color: #333;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dion Chat → DOCX</h1>
+    <p>Экспорт открытого диалога: автор, время, текст, ответы и картинки.</p>
+    <button id="go">Скачать диалог в DOCX</button>
+    <div id="status"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>

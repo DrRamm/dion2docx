@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Dion Chat → DOCX",
+  "version": "0.1.0",
+  "description": "Экспорт чата dion.vc в DOCX: автор, время, текст, ответы и картинки.",
+  "permissions": ["downloads", "offscreen", "activeTab"],
+  "host_permissions": ["https://dion.vc/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Dion Chat → DOCX",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://dion.vc/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
