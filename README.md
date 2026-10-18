@@ -26,6 +26,10 @@
 </p>
 
 <p align="center">
+  Текст на английском: <a href="README.en.md">README.en.md</a>.
+</p>
+
+<p align="center">
   <img src="images/screenshot-1-1280x800_v1.png" width="860" alt="Сохраните чат конференции в один клик: сообщения и ответы участников попадают в Word">
 </p>
 
