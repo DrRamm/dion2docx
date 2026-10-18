@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+  <meta charset="utf-8">
+  <title>Тестовый диалог</title>
+  <style>
+    #sidebar { overflow-y: auto; height: 80px; }
+    #messages { position: relative; overflow-y: auto; height: 220px; width: 460px; }
+    #spacer { position: relative; height: 840px; }
+    [data-id] { position: absolute; width: 430px; height: 130px; }
+  </style>
+  <div id="sidebar" data-virtuoso-scroller><div style="height: 1000px">Список чатов</div></div>
+  <h1 data-testid="chats_selected_chat_title">Контрольный диалог</h1>
+  <div id="messages"><div id="spacer"></div></div>
+  <script>
+    const records = [
+      { id: 'm1', iso: '2026-01-01T09:00:00.000Z', author: 'Анна', text: 'Первое сообщение' },
+      { id: 'm2', iso: '2026-01-01T09:01:00.000Z', author: 'Борис', text: 'Ответ с переносом\nвторая строка', replyAuthor: 'Анна', replyText: 'Первое сообщение' },
+      { id: 'm3', iso: '2026-01-01T09:02:00.000Z', author: 'Анна', text: 'Первая картинка', image: 'image-one', color: 'red' },
+      { id: 'm4', iso: '2026-01-01T09:03:00.000Z', author: 'Борис', text: 'Середина истории' },
+      { id: 'm5', iso: '2026-01-01T09:04:00.000Z', author: 'Анна', text: 'Вторая картинка', image: 'image-two', color: 'blue' },
+      { id: 'm6', iso: '2026-01-01T09:05:00.000Z', author: 'Борис', text: 'Последнее сообщение' },
+    ];
+    const scroller = document.querySelector('#messages');
+    const spacer = document.querySelector('#spacer');
+    const imageUrls = new Map();
+
+    function imageUrl(color) {
+      if (imageUrls.has(color)) return imageUrls.get(color);
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = 12;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, 12, 12);
+      const binary = atob(canvas.toDataURL('image/png').split(',')[1]);
+      const bytes = Uint8Array.from(binary, ch => ch.charCodeAt(0));
+      const url = URL.createObjectURL(new Blob([bytes], { type: 'image/png' }));
+      imageUrls.set(color, url);
+      return url;
+    }
+
+    function render() {
+      // Reuse the visible slice, as a virtualized chat does. Detached nodes
+      // must never be treated as durable references by the scraper.
+      spacer.replaceChildren();
+      const first = Math.max(0, Math.floor(scroller.scrollTop / 140) - 1);
+      const last = Math.min(records.length, first + 4);
+      for (let i = first; i < last; i++) {
+        const record = records[i];
+        const wrapper = document.createElement('div');
+        wrapper.dataset.id = record.id;
+        wrapper.dataset.cursor = record.iso;
+        wrapper.style.top = `${i * 140}px`;
+        const item = document.createElement('div');
+        item.dataset.testid = 'chats_message_item';
+        const add = (testid, value) => {
+          const el = document.createElement('div');
+          el.dataset.testid = testid;
+          el.innerText = value;
+          item.append(el);
+        };
+        add('chats_message_author', record.author);
+        add('chats_message_time', '12:00');
+        add('chats_message_text', record.text);
+        if (record.replyAuthor) {
+          add('chats_reply_message_author', record.replyAuthor);
+          add('chats_message_text_reply', record.replyText);
+        }
+        if (record.image) {
+          const img = document.createElement('img');
+          img.alt = `File ${record.image}`;
+          item.append(img);
+          setTimeout(() => {
+            if (img.isConnected) img.src = imageUrl(record.color);
+          }, 45);
+        }
+        wrapper.append(item);
+        spacer.append(wrapper);
+      }
+    }
+    scroller.addEventListener('scroll', render);
+    render();
+  </script>
+</html>

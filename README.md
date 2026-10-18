@@ -48,6 +48,8 @@ npm run build   # собирает dist/
 ```
 
 Далее в Chrome — те же шаги 1–4 выше, но на шаге 5 выбрать папку `dist/`.
+Папку `src/` загружать нельзя: её `content.js` содержит `import` и не работает
+как content script до сборки.
 
 ## Сборка релиза
 
@@ -57,6 +59,28 @@ npm run release
 
 Собирает `dist/` и упаковывает его в `release/dion-chat-docx-<версия>.zip`
 (`manifest.json` в корне архива). Версия берётся из `src/manifest.json`.
+
+## Автотесты
+
+```sh
+npm test                 # Chromium: popup → content script → DOCX
+npm run test:yandex:dom  # Яндекс.Браузер: сбор диалога и DOCX
+```
+
+Тесты используют локальный диалог без аккаунта Dion. Проверяются виртуальная
+прокрутка, ответы, время, картинки и скачанный DOCX.
+
+Для полной проверки расширения в Яндекс.Браузере один раз выполните
+`npm run setup:yandex` и загрузите папку `dist/` через «Load unpacked» в
+открывшемся `chrome://extensions/`. Затем запускайте `npm run test:yandex`.
+Используется отдельный профиль `~/.cache/dion-chat-docx/yandex-test`;
+обычный профиль браузера не меняется. При другом расположении браузера или
+профиля задайте `YANDEX_BINARY` и `YANDEX_PROFILE`.
+
+Если браузер не запустил content script автоматически, расширение попробует
+загрузить его на вкладку Dion после нажатия кнопки. Если это не удалось,
+popup покажет причину ошибки браузера. После обновления расширения в
+`chrome://extensions/` подтвердите новые разрешения и повторите экспорт.
 
 ## Использование
 
@@ -70,6 +94,8 @@ npm run release
 - `downloads` — сохраняет готовый DOCX в «Загрузки» через API Chrome.
 - `offscreen` — создаёт временный blob URL для DOCX: фоновый service worker
   Manifest V3 не поддерживает `URL.createObjectURL()`.
+- `scripting` и доступ к `https://dion.vc/*` — запускают сборщик на открытой
+  вкладке, если браузер не внедрил content script автоматически.
 - `content_scripts.matches: https://dion.vc/*` — запускает сбор сообщений
   только на страницах Dion. Доступ к другим сайтам не запрашивается.
 

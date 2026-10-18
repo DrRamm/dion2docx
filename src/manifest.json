@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Dion Chat → DOCX",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Экспорт чата dion.vc в DOCX: автор, время, текст, ответы и картинки.",
-  "permissions": ["downloads", "offscreen"],
+  "permissions": ["downloads", "offscreen", "scripting"],
+  "host_permissions": ["https://dion.vc/*"],
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",

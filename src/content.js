@@ -441,13 +441,14 @@ async function runExport() {
 }
 
 // ---- Wiring -----------------------------------------------------------------
-if (typeof chrome !== "undefined" && chrome.runtime?.onMessage) {
+if (typeof chrome !== "undefined" && chrome.runtime?.onMessage && !window.__dionDocxListenerInstalled) {
   chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
     if (msg?.type === "dion-export-docx") {
       runExport().then(sendResponse);
       return true; // async response
     }
   });
+  window.__dionDocxListenerInstalled = true;
 }
 
 // Expose for manual/injected testing.
