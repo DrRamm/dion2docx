@@ -2,17 +2,116 @@
 
 Russian: [store-listing.md](store-listing.md).
 
-Dion Chat → DOCX saves the open dialog on dion.vc as a Word document (.docx).
+Save the open dialog with Dion Chat → DOCX. dion vc has no history export, so this browser extension scrolls the conversation and saves a .docx file to Downloads. People often type the address as https dion vc and dion ru.
 
-The document contains:
+The file keeps the author, the local time to the second, the text, replies, and images.
 
-- Message authors and times in the computer's time zone.
-- Text with line breaks.
-- Replies with quoted text.
-- Images.
+🚀 How to start
 
-To start, open a dialog, click the extension icon, and click the download button. The extension scrolls through the history, collects available messages, and saves the document to the Downloads folder. The file name contains the chat title and the date.
+1. Open the dialog you need on dion.vc while you are signed in.
+2. Click the extension icon and the download button.
+3. Wait while the page scrolls and older messages load.
+4. Take the file from Downloads. The name comes from the chat title and the date.
 
-The extension processes the data locally in the browser. It does not send the conversation to third-party servers or use analytics.
+Use the conversation export when the conversation needs to be in Word.
 
-Only the open dialog is included. Voice messages, video, and attachments other than images are not included. The exported history is limited to the messages that the page can load.
+📝 What a dion chat in word contains
+
+➤ The author and the time on every message, in your computer time zone.
+➤ Text with its line breaks.
+➤ A reply on its own line, with the quoted author.
+➤ Images inside the file, so it opens without dion.vc.
+➤ A short note if an image cannot be read.
+➤ A header with the title, the export time, the message count, and the attachment count.
+
+The chat list on the left is not included.
+
+💡 Why save a conversation as a document
+
+- Keep notes: a conference export to word after the call.
+- Hand the dialog to someone who does not have it open.
+- Store a decision with the name and the time.
+
+The message export extension does this on the tab that is already open. You export the conversation to word.
+
+1️⃣ Open the dialog, not the chat list.
+2️⃣ Reload the tab if it was open before installation.
+3️⃣ Stay on the page until the counter in the corner finishes.
+4️⃣ Find the file by the chat title and the date.
+
+📌 What the dion chat history in docx keeps
+
+▸ The author name on every message
+▸ Local time to the second
+▸ Text and line breaks
+▸ Reply lines
+▸ Embedded images
+▸ A count of messages and images while they are collected
+
+Voice messages, video, and other files do not go into the document.
+
+🌐 Where the extension runs
+
+Only dion vc. дион онлайн stays in the browser, so you do not install a separate program.
+
+🔒 What stays on the computer
+
+• There is no analytics and no telemetry.
+• Text, authors, and images are not uploaded.
+• The Word file is built in the browser.
+• It lands in Downloads.
+• Permissions are downloads, offscreen, scripting, and the dion.vc host.
+
+⚙️ Limits of conversation export
+
+1. Only the open dialog is included.
+2. The left list is skipped.
+3. A long history has to scroll to the start.
+4. Files other than images are skipped.
+5. A new layout on dion.vc can stop collection until the selectors are updated.
+
+If the button does nothing, confirm the permissions and reload the tab. Run the conversation export again after the reload.
+
+📂 One dialog, one file
+
+Older messages come first. The dion chat transcript keeps that order. A dion.vc chat in docx is the same open room.
+
+Save messages to word while the dialog is open. Download the chat history while older rows can still load. Save the dialog to docx when you want the images inside. Download the conversation as text from the same run.
+
+💬 Tasks you can use the extension for
+
+➤ After a planning call, keep the conference chat in a document.
+➤ Turn a support thread into a chat in a word document.
+➤ Keep agreements: the author and the message time on one line.
+➤ Collect an export of messages with images for a report.
+➤ You may need a chat backup before a project ends.
+➤ Do not copy by hand. The button scrolls the history for you.
+
+A conversation history in a document is easier to read when the author and the time sit together. A dion chat export takes only the open room. You can save the dialog as a document again on any day.
+
+Open Word and read the saved conversation document from the start. This is a chat copy in docx next to your other notes. Image attachments in word sit under their message.
+
+Another run puts the open dialog into a file with the same contents. A new conversation export does not merge old copies into one.
+
+❓ Questions
+
+📌 Does the site export the chat by itself?
+💡 No. The browser extension walks the open dialog and builds the file.
+
+📌 Can one click take the whole list on the left?
+💡 No. Open the next dialog and start the message export there.
+
+📌 Where does the file go?
+💡 To Downloads. The name uses the chat title and the local date.
+
+📌 Do images stay in the document?
+💡 Yes. If the bytes cannot be read, a short note stands in place of the image.
+
+📌 Does the conversation leave the browser?
+💡 No. The build runs on your computer. The dialog is not sent to a server.
+
+📌 Which clock is on a message?
+💡 Local time on your computer, to the second.
+
+📌 What if the export does not start?
+💡 Open the dialog, allow the permissions, and reload the tab.
