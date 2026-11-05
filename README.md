@@ -12,7 +12,7 @@
 <p align="center">
   <img alt="Версия 0.1.2" src="https://img.shields.io/badge/version-0.1.2-6C5CE7">
   <img alt="Manifest V3" src="https://img.shields.io/badge/Manifest-V3-4285F4">
-  <img alt="Расширение Chrome" src="https://img.shields.io/badge/Chrome-extension-34A853?logo=googlechrome&logoColor=white">
+  <a href="https://chromewebstore.google.com/detail/effedlniejdilkgjdccmbmomhpolcgbc"><img alt="Установить из Chrome Web Store" src="https://img.shields.io/badge/Chrome_Web_Store-Установить-34A853?logo=googlechrome&logoColor=white"></a>
   <a href="https://github.com/DrRamm/dion2docx/stargazers"><img alt="Звёзды GitHub" src="https://img.shields.io/github/stars/DrRamm/dion2docx?style=flat&logo=github"></a>
 </p>
 
@@ -90,7 +90,7 @@
 
 ## Быстрый старт
 
-1. Поставьте расширение из [готового zip](#готовая-сборка) или [соберите `dist/`](#сборка-из-исходников).
+1. Установите расширение из [Chrome Web Store](https://chromewebstore.google.com/detail/effedlniejdilkgjdccmbmomhpolcgbc).
 2. Откройте нужный диалог на `dion.vc` под своим аккаунтом.
 3. Нажмите иконку расширения и **Скачать диалог в DOCX**.
 
@@ -130,7 +130,15 @@
 
 ## Установка
 
-Работает в Chrome и в Яндекс.Браузере. Оба грузят расширение как распакованное: магазина Chrome Web Store у проекта нет.
+Работает в Chrome и в Яндекс.Браузере. Расширение опубликовано в Chrome Web Store.
+
+### Chrome Web Store
+
+1. Откройте [Dion Chat → DOCX в Chrome Web Store](https://chromewebstore.google.com/detail/effedlniejdilkgjdccmbmomhpolcgbc).
+2. Нажмите **Установить** и подтвердите установку расширения.
+3. Обновите вкладку с `dion.vc`, если она была открыта раньше.
+
+Режим разработчика и Node.js не нужны. Для ручной установки используйте готовую сборку или соберите расширение из исходников.
 
 ### Готовая сборка
 

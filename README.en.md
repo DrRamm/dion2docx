@@ -12,7 +12,7 @@
 <p align="center">
   <img alt="Version 0.1.2" src="https://img.shields.io/badge/version-0.1.2-6C5CE7">
   <img alt="Manifest V3" src="https://img.shields.io/badge/Manifest-V3-4285F4">
-  <img alt="Chrome extension" src="https://img.shields.io/badge/Chrome-extension-34A853?logo=googlechrome&logoColor=white">
+  <a href="https://chromewebstore.google.com/detail/effedlniejdilkgjdccmbmomhpolcgbc"><img alt="Install from Chrome Web Store" src="https://img.shields.io/badge/Chrome_Web_Store-Install-34A853?logo=googlechrome&logoColor=white"></a>
   <a href="https://github.com/DrRamm/dion2docx/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/DrRamm/dion2docx?style=flat&logo=github"></a>
 </p>
 
@@ -90,7 +90,7 @@ The button in the extension window: **Download dialog to DOCX**.
 
 ## Quick start
 
-1. Install the extension from the [ready zip](#ready-build) or [build `dist/`](#build-from-source).
+1. Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/effedlniejdilkgjdccmbmomhpolcgbc).
 2. Open the dialog you need on `dion.vc` under your account.
 3. Click the extension icon and **Download dialog to DOCX**.
 
@@ -130,7 +130,15 @@ The correspondence stays with you.
 
 ## Install
 
-It works in Chrome and in Yandex Browser. Both load the extension unpacked: the project has no Chrome Web Store listing.
+It works in Chrome and in Yandex Browser. The extension is published in the Chrome Web Store.
+
+### Chrome Web Store
+
+1. Open [Dion Chat → DOCX in the Chrome Web Store](https://chromewebstore.google.com/detail/effedlniejdilkgjdccmbmomhpolcgbc).
+2. Click **Add to Chrome** and confirm the extension installation.
+3. Reload the `dion.vc` tab if it was open earlier.
+
+Developer mode and Node.js are not required. For manual installation, use the ready build or build the extension from source.
 
 ### Ready build
 
